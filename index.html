@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syed Mohammad Fawaz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#e8e3d0;--paper:#0f0f0d;--paper2:#181816;
+  --rust:#d4622e;--rust2:#e8784a;--fog:#5a5a52;--fog2:#7a7a70;
+  --syne:'Syne',sans-serif;--mono:'Space Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--mono);font-size:13px;line-height:1.7;overflow-x:hidden;text-shadow:0 0 8px rgba(232,227,208,0.15)}
+a{color:inherit;text-decoration:none}
+.cursor{width:12px;height:12px;border-radius:50%;background:var(--rust);position:fixed;pointer-events:none;z-index:9999;transition:transform 0.15s ease;mix-blend-mode:screen;box-shadow:0 0 12px 4px rgba(212,98,46,0.5),0 0 40px 12px rgba(212,98,46,0.15)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-bottom:1px solid rgba(232,227,208,0.08);position:sticky;top:0;background:rgba(15,15,13,0.92);backdrop-filter:blur(12px);z-index:100}
+.nav-logo{font-family:var(--syne);font-weight:800;font-size:1.1rem;letter-spacing:-0.03em;color:var(--ink)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--fog2);transition:color 0.2s}
+.nav-links a:hover{color:var(--ink)}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:90vh;border-bottom:1px solid rgba(232,227,208,0.08)}
+.hero-left{padding:4rem 3rem;border-right:1px solid rgba(232,227,208,0.08);display:flex;flex-direction:column;justify-content:space-between}
+.hero-right{padding:4rem 3rem;display:flex;flex-direction:column;justify-content:flex-end;background:var(--paper2);position:relative;overflow:hidden}
+.hero-right::before{content:'SMF';font-family:var(--syne);font-weight:800;font-size:22vw;color:rgba(232,227,208,0.03);position:absolute;right:-2rem;bottom:-1rem;line-height:1;pointer-events:none;white-space:nowrap}
+.eyebrow{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--fog2);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.6rem}
+.dot{width:7px;height:7px;border-radius:50%;background:#4a9e5c;animation:blink 2s ease infinite;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+h1{font-family:var(--syne);font-weight:800;font-size:clamp(3rem,5.5vw,5rem);line-height:0.95;letter-spacing:-0.04em;margin-bottom:2rem;color:var(--ink)}
+h1 .accent{color:var(--rust)}
+.hero-desc{font-size:13px;color:var(--fog2);max-width:340px;line-height:1.9;border-left:2px solid var(--rust);padding-left:1rem}
+.hero-ctas{display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap}
+.btn{padding:0.6rem 1.4rem;font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.4rem;border:none}
+.btn-light{background:var(--ink);color:var(--paper);border:1.5px solid var(--ink)}
+.btn-light:hover{background:var(--rust);border-color:var(--rust);color:var(--ink)}
+.btn-outline{background:transparent;color:var(--ink);border:1.5px solid rgba(232,227,208,0.2)}
+.btn-outline:hover{border-color:var(--ink)}
+.stat-stack{margin-bottom:2.5rem}
+.stat-row{display:flex;align-items:baseline;gap:0.75rem;padding:1rem 0;border-bottom:1px solid rgba(232,227,208,0.06)}
+.stat-row:first-child{border-top:1px solid rgba(232,227,208,0.06)}
+.stat-n{font-family:var(--syne);font-weight:800;font-size:2.8rem;letter-spacing:-0.04em;color:var(--ink)}
+.stat-l{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fog)}
+.hero-right-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--fog);margin-bottom:1rem}
+section{padding:5rem 3rem;border-bottom:1px solid rgba(232,227,208,0.08)}
+.sec-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3rem}
+.sec-title{font-family:var(--syne);font-weight:800;font-size:clamp(1.8rem,3vw,2.5rem);letter-spacing:-0.03em;color:var(--ink)}
+.sec-num{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--fog)}
+.work-list{display:grid;gap:0}
+.work-row{display:grid;grid-template-columns:3rem 1fr auto;gap:2rem;align-items:start;padding:2rem 0;border-top:1px solid rgba(232,227,208,0.06);transition:all 0.25s;cursor:pointer}
+.work-row:last-child{border-bottom:1px solid rgba(232,227,208,0.06)}
+.work-row:hover{padding-left:1rem;padding-right:1rem;margin:0 -1rem;background:var(--paper2)}
+.work-index{font-family:var(--syne);font-weight:800;font-size:1.1rem;color:var(--rust);padding-top:0.1rem}
+.work-name{font-family:var(--syne);font-weight:700;font-size:1.2rem;letter-spacing:-0.02em;margin-bottom:0.4rem;color:var(--ink)}
+.work-blurb{font-size:12px;color:var(--fog2);line-height:1.7;max-width:520px;margin-bottom:0.75rem}
+.work-chips{display:flex;gap:0.4rem;flex-wrap:wrap}
+.chip{font-size:10px;letter-spacing:0.07em;text-transform:uppercase;padding:0.2rem 0.55rem;border:1px solid rgba(232,227,208,0.1);color:var(--fog2)}
+.work-arrow{font-size:1.2rem;color:var(--fog);padding-top:0.2rem;transition:all 0.2s;align-self:center}
+.work-row:hover .work-arrow{color:var(--rust);transform:translate(3px,-3px)}
+.skills-section{background:var(--paper2)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0}
+.skill-col{padding:1.5rem 2rem 1.5rem 0;border-bottom:1px solid rgba(232,227,208,0.06)}
+.skill-col:nth-child(-n+3){border-top:1px solid rgba(232,227,208,0.06)}
+.skill-col-name{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--fog);margin-bottom:1rem}
+.skill-items{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.skill-items li{font-size:13px;color:var(--ink);display:flex;align-items:center;gap:0.6rem}
+.skill-items li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--rust);flex-shrink:0}
+.about-section{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about-big{font-family:var(--syne);font-weight:800;font-size:clamp(1.5rem,2.8vw,2.2rem);line-height:1.2;letter-spacing:-0.03em;color:var(--ink);margin-bottom:2rem}
+.about-big .em{color:var(--rust)}
+.about-meta{display:flex;flex-direction:column;gap:0}
+.meta-row{display:grid;grid-template-columns:120px 1fr;padding:0.85rem 0;border-bottom:1px solid rgba(232,227,208,0.07)}
+.meta-row:first-child{border-top:1px solid rgba(232,227,208,0.07)}
+.meta-k{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fog)}
+.meta-v{font-size:13px;color:var(--ink)}
+.meta-v a{color:var(--rust2);border-bottom:1px solid transparent;transition:border-color 0.2s;cursor:pointer}
+.meta-v a:hover{border-color:var(--rust2)}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:rgba(232,227,208,0.08);border:1px solid rgba(232,227,208,0.08);margin-top:3rem}
+.cert-card{background:var(--paper);padding:1.5rem;transition:background 0.2s;cursor:default}
+.cert-card:hover{background:var(--rust)}
+.cert-card:hover .cert-name-text{color:var(--paper)}
+.cert-card:hover .cert-issuer{color:rgba(232,227,208,0.6)}
+.cert-name-text{font-family:var(--syne);font-weight:700;font-size:0.9rem;letter-spacing:-0.01em;margin-bottom:0.4rem;color:var(--ink)}
+.cert-issuer{font-size:11px;letter-spacing:0.07em;text-transform:uppercase;color:var(--fog2);transition:color 0.2s}
+.contact-section{background:#8B0000}
+.contact-big{font-family:var(--syne);font-weight:800;font-size:clamp(2.5rem,6vw,5rem);line-height:0.95;letter-spacing:-0.04em;color:var(--paper);margin-bottom:3rem}
+.contact-links{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:2rem}
+.contact-link{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:0.6rem 1.4rem;border:1.5px solid rgba(232,227,208,0.4);color:var(--paper);transition:all 0.2s}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s cubic-bezier(0.25,0.46,0.45,0.94),transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.contact-link:hover{background:var(--paper);color:#8B0000;border-color:var(--paper)}
+footer{padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(232,227,208,0.08)}
+.footer-l{font-size:11px;color:var(--fog);letter-spacing:0.05em}
+@media(max-width:700px){
+  nav{padding:1rem 1.5rem}.nav-links{gap:1.2rem}
+  .hero{grid-template-columns:1fr}.hero-right{min-height:50vh}
+  section{padding:4rem 1.5rem}.about-section{grid-template-columns:1fr}
+  footer{padding:1.5rem;flex-direction:column;gap:0.5rem;text-align:center}
+  .work-row{grid-template-columns:2rem 1fr auto;gap:1rem}
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cur"></div>
+<nav>
+  <span class="nav-logo">f4w4z.</span>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<div class="hero">
+  <div class="hero-left">
+    <div>
+      <p class="eyebrow"><span class="dot"></span> Open to opportunities &middot; Tamil Nadu, IN</p>
+      <h1><span class="accent" id="typed"></span><span id="cb">|</span><br>Mohammad<br>Fawaz</h1>
+      <p class="hero-desc">CS student building end-to-end systems &mdash; published extensions, custom data engines, web apps. I care about craft.</p>
+      <div class="hero-ctas">
+        <a href="mailto:syedmdfawaz@gmail.com" class="btn btn-light">Hire me ↗</a>
+        <a href="https://github.com/SMFawaz24" target="_blank" class="btn btn-outline">GitHub</a>
+      </div>
+    </div>
+    <p style="font-size:11px;color:var(--fog);letter-spacing:0.05em;margin-top:3rem">SRM IST &middot; B.Tech CSE &middot; 2023&ndash;2027 &middot; GPA 8.52</p>
+  </div>
+  <div class="hero-right">
+    <p class="hero-right-label">By the numbers</p>
+    <div class="stat-stack">
+      <div class="stat-row"><span class="stat-n">6+</span><span class="stat-l">Projects shipped</span></div>
+      <div class="stat-row"><span class="stat-n">5</span><span class="stat-l">Certifications</span></div>
+      <div class="stat-row"><span class="stat-n">10+</span><span class="stat-l">Technologies</span></div>
+      <div class="stat-row"><span class="stat-n">1</span><span class="stat-l">Published extension</span></div>
+    </div>
+  </div>
+</div>
+<section id="work">
+  <div class="sec-header">
+    <h2 class="sec-title">Selected work</h2>
+    <span class="sec-num">01 / 04</span>
+  </div>
+  <div class="work-list">
+
+    <div class="work-row" onclick="window.open('https://chromewebstore.google.com/detail/behkfphgkbobbfocneknileklhkkmfjc','_blank')">
+      <span class="work-index">01</span>
+      <div>
+        <p class="work-name">SRM Auto Login</p>
+        <p class="work-blurb">Published Chrome extension automating network auth for thousands of campus users. Detects session redirects, auto-fills credentials, keeps data strictly on-device via Chrome Storage API.</p>
+        <div class="work-chips"><span class="chip">JS</span><span class="chip">Chrome MV3</span><span class="chip">DOM API</span><span class="chip">Published</span></div>
+      </div>
+      <span class="work-arrow">↗</span>
+    </div>
+    <div class="work-row" onclick="window.open('https://datatransformer.f4w4z.dev','_blank')">
+      <span class="work-index">02</span>
+      <div>
+        <p class="work-name">Data Scaler</p>
+        <p class="work-blurb">Scalable Java CSV engine with validator, cleaner, filter, transformer pipeline using Java Streams API. Categorical encoders + live browser dashboard.</p>
+        <div class="work-chips"><span class="chip">Java</span><span class="chip">Streams API</span><span class="chip">HTML/JS</span></div>
+      </div>
+      <span class="work-arrow">↗</span>
+    </div>
+    <div class="work-row" onclick="window.open('https://interchronos.f4w4z.dev','_blank')">
+      <span class="work-index">03</span>
+      <div>
+        <p class="work-name">Interchronos</p>
+        <p class="work-blurb">React + TypeScript SPA with custom hooks for Wikipedia REST payloads. Astronomy keyword classifier with domain-specific token lists for event filtering.</p>
+        <div class="work-chips"><span class="chip">TypeScript</span><span class="chip">React</span><span class="chip">Wikipedia API</span></div>
+      </div>
+      <span class="work-arrow">↗</span>
+    </div>
+    <div class="work-row" onclick="window.open('https://github.com/SMFawaz24/AI-AgriTech-Assistant','_blank')">
+      <span class="work-index">04</span>
+      <div>
+        <p class="work-name">AI AgriTech</p>
+        <p class="work-blurb">AI-powered PWA for small and marginal farmers &mdash; crop yield prediction, pest detection, and weather forecasting.</p>
+        <div class="work-chips"><span class="chip">JS</span><span class="chip">PWA</span><span class="chip">AI/ML</span></div>
+      </div>
+      <span class="work-arrow">↗</span>
+    </div>
+  </div>
+</section>
+<section id="skills" class="skills-section">
+  <div class="sec-header">
+    <h2 class="sec-title">The toolkit</h2>
+    <span class="sec-num">02 / 04</span>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-col">
+      <p class="skill-col-name">Languages</p>
+      <ul class="skill-items"><li>Python</li><li>Java</li><li>JavaScript / TS</li><li>C / C++</li><li>SQL</li></ul>
+    </div>
+    <div class="skill-col">
+      <p class="skill-col-name">Frontend</p>
+      <ul class="skill-items"><li>React</li><li>Next.js</li><li>Chrome MV3</li></ul>
+    </div>
+    <div class="skill-col">
+      <p class="skill-col-name">Data &amp; AI</p>
+      <ul class="skill-items"><li>Machine Learning</li><li>Deep Learning</li><li>RAG + Vector DBs</li><li>Pandas / NumPy</li></ul>
+    </div>
+    <div class="skill-col">
+      <p class="skill-col-name">Databases</p>
+      <ul class="skill-items"><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li></ul>
+    </div>
+    <div class="skill-col">
+      <p class="skill-col-name">Tools</p>
+      <ul class="skill-items"><li>Git</li><li>Selenium</li><li>TestNG</li><li>Postman</li></ul>
+    </div>
+  </div>
+</section>
+<section id="about">
+  <div class="sec-header">
+    <h2 class="sec-title">About</h2>
+    <span class="sec-num">03 / 04</span>
+  </div>
+  <div class="about-section">
+    <div>
+      <p class="about-big">Third-year CS student who ships <span class="em">real things</span> &mdash; not just side projects that never see the light.</p>
+      <p style="font-size:13px;color:var(--fog2);line-height:1.9">Built a Chrome extension used across campus. Engineered data pipelines from scratch. Always learning, always building. Fluent in English, Hindi, Urdu. Basic German.</p>
+    </div>
+    <div>
+      <div class="about-meta">
+        <div class="meta-row"><span class="meta-k">Currently</span><span class="meta-v">B.Tech CSE @ SRM IST</span></div>
+        <div class="meta-row"><span class="meta-k">GPA</span><span class="meta-v">8.52 / 10.0</span></div>
+        <div class="meta-row"><span class="meta-k">Based in</span><span class="meta-v">Kattankulathur, TN</span></div>
+        <div class="meta-row"><span class="meta-k">Resume</span><span class="meta-v"><a href="https://drive.google.com/file/d/1li9Tf_b4XK7GUZR61xDWVPJiIHfqNi9Z/view?usp=sharing" target="_blank">View ↗</a></span></div>
+        <div class="meta-row"><span class="meta-k">GitHub</span><span class="meta-v"><a href="https://github.com/SMFawaz24" target="_blank">SMFawaz24 ↗</a></span></div>
+        <div class="meta-row"><span class="meta-k">LinkedIn</span><span class="meta-v"><a href="https://linkedin.com/in/syed-mohammad-fawaz/" target="_blank">syed-mohammad-fawaz ↗</a></span></div>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card"><p class="cert-name-text">GitHub Copilot</p><p class="cert-issuer">Microsoft &middot; 2026</p></div>
+        <div class="cert-card"><p class="cert-name-text">SAP Gen AI Dev</p><p class="cert-issuer">SAP &middot; 2026</p></div>
+        <div class="cert-card"><p class="cert-name-text">Intro to ML</p><p class="cert-issuer">NPTEL &middot; 2025</p></div>
+        <div class="cert-card"><p class="cert-name-text">Networking Basics</p><p class="cert-issuer">Cisco &middot; 2025</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="contact" class="contact-section" style="position:relative">
+<canvas id="netbg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.25;pointer-events:none"></canvas>
+  <div class="sec-header">
+    <h2 class="sec-title" style="color:var(--paper)">Let's talk</h2>
+    <span class="sec-num" style="color:rgba(232,227,208,0.4)">04 / 04</span>
+  </div>
+  <p class="contact-big">Let's build<br>something<br><em style="font-style:italic">worth keeping.</em></p>
+  <div class="contact-links">
+    <a href="mailto:syedmdfawaz@gmail.com" class="contact-link">syedmdfawaz@gmail.com</a>
+    <a href="https://linkedin.com/in/syed-mohammad-fawaz/" target="_blank" class="contact-link">LinkedIn ↗</a>
+    <a href="https://github.com/SMFawaz24" target="_blank" class="contact-link">GitHub ↗</a>
+  </div>
+</section>
+<footer>
+  <span class="footer-l">Syed Mohammad Fawaz &middot; 2026</span>
+  <span class="footer-l">Kattankulathur, IN</span>
+</footer>
+<script>
+// typing
+const words = ['Syed', 'Builder.', 'Creative.', 'Syed'];
+let wi = 0, ci = 0, deleting = false;
+const typed = document.getElementById('typed');
+const cb = document.getElementById('cb');
+cb.style.cssText = 'animation:cblink 0.7s step-end infinite;color:var(--rust)';
+document.head.insertAdjacentHTML('beforeend','<style>@keyframes cblink{0%,100%{opacity:1}50%{opacity:0}}</style>');
+function type() {
+  const word = words[wi];
+  if (!deleting) {
+    typed.textContent = word.slice(0, ++ci);
+    if (ci === word.length) { deleting = true; setTimeout(type, 1200); return; }
+  } else {
+    typed.textContent = word.slice(0, --ci);
+    if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; }
+  }
+  setTimeout(type, deleting ? 60 : 100);
+}
+type();
+// network graph
+(function(){
+  const c = document.getElementById('netbg');
+  const sec = document.getElementById('contact');
+  function resize(){ c.width = sec.offsetWidth; c.height = sec.offsetHeight; }
+  resize(); window.addEventListener('resize', resize);
+  const ctx = c.getContext('2d');
+  const N = 36;
+  let nodes = Array.from({length:N}, () => ({
+    x: Math.random() * c.width,
+    y: Math.random() * c.height,
+    vx: (Math.random()-0.5)*0.4,
+    vy: (Math.random()-0.5)*0.4,
+    r: Math.random()*2+1.5
+  }));
+  const DIST = 120;
+  let angle = 0;
+  function draw(){
+    c.width = sec.offsetWidth; c.height = sec.offsetHeight;
+    ctx.clearRect(0,0,c.width,c.height);
+    angle += 0.002;
+    const cx = c.width/2, cy = c.height/2;
+    ctx.save();
+    ctx.translate(cx,cy);
+    ctx.rotate(angle);
+    ctx.translate(-cx,-cy);
+    nodes.forEach(n => {
+      n.x += n.vx; n.y += n.vy;
+      if(n.x<0||n.x>c.width) n.vx*=-1;
+      if(n.y<0||n.y>c.height) n.vy*=-1;
+    });
+    for(let i=0;i<N;i++) for(let j=i+1;j<N;j++){
+      const dx=nodes[i].x-nodes[j].x, dy=nodes[i].y-nodes[j].y;
+      const d=Math.sqrt(dx*dx+dy*dy);
+      if(d<DIST){
+        ctx.beginPath();
+        ctx.moveTo(nodes[i].x,nodes[i].y);
+        ctx.lineTo(nodes[j].x,nodes[j].y);
+        ctx.strokeStyle=`rgba(255,220,220,${1-d/DIST})`;
+        ctx.lineWidth=0.6;
+        ctx.stroke();
+      }
+    }
+    nodes.forEach(n=>{
+      ctx.beginPath();
+      ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(255,200,200,0.9)';
+      ctx.fill();
+    });
+    ctx.restore();
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+// Apple-like scroll reveal
+document.querySelectorAll('section, .hero, .work-row, .skill-col, .cert-card, .stat-row').forEach((el,i) => {
+  el.classList.add('reveal');
+  el.style.transitionDelay = (i % 5) * 0.07 + 's';
+});
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }});
+}, {threshold: 0.1});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+const cur = document.getElementById('cur');
+document.addEventListener('mousemove', e => {
+  cur.style.left = (e.clientX - 6) + 'px';
+  cur.style.top = (e.clientY - 6) + 'px';
+});
+document.querySelectorAll('a,button,.work-row,.cert-card').forEach(el => {
+  el.addEventListener('mouseenter', () => cur.style.transform = 'scale(3)');
+  el.addEventListener('mouseleave', () => cur.style.transform = 'scale(1)');
+});
+const rustGlow = '0 0 12px 4px rgba(212,98,46,0.5),0 0 40px 12px rgba(212,98,46,0.15)';
+const greenGlow = '0 0 12px 4px rgba(74,158,92,0.6),0 0 40px 12px rgba(74,158,92,0.2)';
+const skillsSection = document.getElementById('skills');
+skillsSection.addEventListener('mouseenter', () => {
+  cur.style.background = '#4a9e5c';
+  cur.style.boxShadow = greenGlow;
+});
+skillsSection.addEventListener('mouseleave', () => {
+  cur.style.background = 'var(--rust)';
+  cur.style.boxShadow = rustGlow;
+});
+</script>
+</body>
+</html>
