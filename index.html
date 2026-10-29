@@ -202,6 +202,14 @@ main,.hero,.contact{position:relative;z-index:1}
 .tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.4rem}
 .tags span{font-size:.78rem;padding:.3rem .7rem;border-radius:99px;background:var(--s2);border:1px solid var(--line);color:var(--mute)}
 
+.wp{display:flex;align-items:baseline;gap:.3rem;margin-bottom:.6rem;flex-wrap:wrap}
+.wpn{font-size:clamp(3rem,7vw,5.5rem);font-weight:800;letter-spacing:-.06em;line-height:.9;font-variant-numeric:tabular-nums}
+.wpu{font-size:1.6rem;font-weight:700;color:var(--blue2)}
+.wpl{margin-left:.6rem;font-size:.85rem;color:var(--mute)}
+.cmp{margin-top:.8rem;font-size:.82rem;color:var(--mute);display:grid;gap:.45rem}
+.cr{display:grid;grid-template-columns:7.2rem 1fr 3rem;gap:.8rem;align-items:center}
+.cr em{font-style:normal}.cr b{color:var(--tx);font-variant-numeric:tabular-nums;font-weight:600;text-align:right}
+.cr .bt i{width:0}
 .more{max-width:1500px;margin:0 auto;padding:clamp(2rem,6vw,5rem) var(--pad)}
 .more h2{font-size:clamp(1.8rem,3.6vw,3rem);margin-bottom:1.6rem}
 .mrow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) auto;gap:1rem 3rem;align-items:center;padding:1.8rem 0;border-top:1px solid var(--line2);transition:padding .25s var(--ease),background .25s}
@@ -298,47 +306,54 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
 <main>
 <section class="work" id="work" aria-label="Projects">
   <div class="work-head">
-    <h2>Six things I shipped.</h2>
+    <h2>Seven things I shipped.</h2>
     <p>Each one solved a real problem. Watch what they do.</p>
   </div>
 
   <div class="show">
     <div class="steps">
       <article class="step" data-i="0">
+        <h3>Chase Tracker</h3>
+        <p>Win probability after every ball of an IPL chase. An XGBoost model trained on 122,857 chase deliveries across all IPL seasons scores a Brier of 0.174 on 16,166 deliveries from 2025 and 2026 that it never saw, against 0.248 for a constant guess. Replay any match, jump to its turning points, or type in a scenario.</p>
+        <p class="stackline"><b>Built with</b> Python, XGBoost, FastAPI, JavaScript</p>
+        <a class="go" href="https://chase.f4w4z.dev" target="_blank" rel="noopener" data-cursor="Open">Open Chase Tracker</a>
+        <div class="slot"></div>
+      </article>
+      <article class="step" data-i="1">
         <h3>SRM Auto Login</h3>
         <p>Campus Wi-Fi logs you out every day. This Chrome extension notices the portal redirect, fills in your login and signs you back in. Credentials stay on your device through the Chrome Storage API. About 2,000 students use it.</p>
         <p class="stackline"><b>Built with</b> JavaScript, Chrome Manifest V3, Webpack</p>
         <a class="go" href="https://chromewebstore.google.com/detail/behkfphgkbobbfocneknileklhkkmfjc" target="_blank" rel="noopener" data-cursor="Open">Open in Chrome Web Store</a>
         <div class="slot"></div>
       </article>
-      <article class="step" data-i="1">
+      <article class="step" data-i="2">
         <h3>Veriflow</h3>
         <p>Upload a messy CSV and get it back validated, cleaned and transformed. It profiles every column on upload, encodes categories, and gives you an expiring download link. It grew out of my Java Data Scaler engine.</p>
         <p class="stackline"><b>Built with</b> Node.js, Express, REST API</p>
         <a class="go" href="https://veriflow.f4w4z.dev" target="_blank" rel="noopener" data-cursor="Open">Try Veriflow</a>
         <div class="slot"></div>
       </article>
-      <article class="step" data-i="2">
+      <article class="step" data-i="3">
         <h3>ATP Analytics</h3>
         <p>Pick any two tennis players and compare them across 65,974 matches from 2000 to 2025: head-to-head, titles by tournament level, results by surface and win rates under pressure. One file, no dependencies.</p>
         <p class="stackline"><b>Built with</b> JavaScript, HTML, CSS</p>
         <a class="go" href="https://tennis.f4w4z.dev" target="_blank" rel="noopener" data-cursor="Open">Compare players</a>
         <div class="slot"></div>
       </article>
-      <article class="step" data-i="3">
+      <article class="step" data-i="4">
         <h3>IPL Dashboard</h3>
         <p>Seventeen seasons of the Indian Premier League, cleaned in a five-notebook Python pipeline and presented in a five-page Power BI dashboard with slicers and cross-page navigation.</p>
         <p class="stackline"><b>Built with</b> Python, Pandas, Seaborn, Power BI</p>
         <a class="go" href="https://github.com/SMFawaz24/IPL-dashboard" target="_blank" rel="noopener" data-cursor="Open">See the code</a>
         <div class="slot"></div>
       </article>
-      <article class="step" data-i="4">
+      <article class="step" data-i="5">
         <h3>Project Eagle-Eye</h3>
         <p>A disaster-rescue vision system. A YOLOv8 model scans drone footage for people trapped in debris, with the inference path tuned for low latency on edge hardware.</p>
         <p class="stackline"><b>Built with</b> Python, TensorFlow, YOLOv8</p>
         <div class="slot"></div>
       </article>
-      <article class="step" data-i="5">
+      <article class="step" data-i="6">
         <h3>Cloud Stability Analysis</h3>
         <p>Finds anomalies in cloud performance metrics using Z-score and Isolation Forest methods. Experiments are tracked in MLflow, and a Flask dashboard on AWS EC2 lets a team explore the results.</p>
         <p class="stackline"><b>Built with</b> Python, scikit-learn, MLflow, Flask, AWS EC2</p>
@@ -350,6 +365,19 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
       <div class="stage" id="stage">
 
         <div class="scene" data-i="0">
+          <div class="bar"><i></i><i></i><i></i><span class="url">chase.f4w4z.dev</span></div>
+          <div class="body">
+            <div class="wp"><span class="wpn" id="wpn">50</span><span class="wpu">%</span><span class="wpl">chance of winning the chase</span></div>
+            <canvas class="cv" id="wpCv" aria-label="Win probability curve (illustration)"></canvas>
+            <div class="read"><span>Over <b id="wpo">0.0</b></span><span>Replay <b id="wpb">0</b> balls</span><span class="fl">Turning points <b id="wpt">0</b></span></div>
+            <div class="cmp"><div><span>Brier score, lower is better</span></div>
+              <div class="cr"><em>Model</em><div class="bt"><i class="ba" style="width:70%"></i></div><b>0.174</b></div>
+              <div class="cr"><em>Constant guess</em><div class="bt"><i class="bb" style="width:100%"></i></div><b>0.248</b></div></div>
+            <p class="cap" style="margin-top:.6rem">Curve is an illustration. Scores are from the real test set.</p>
+          </div>
+        </div>
+
+        <div class="scene" data-i="1">
           <div class="bar"><i></i><i></i><i></i><span class="url">iach.srmist.edu.in</span></div>
           <div class="body">
             <div class="login">
@@ -368,7 +396,7 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
           </div>
         </div>
 
-        <div class="scene" data-i="1">
+        <div class="scene" data-i="2">
           <div class="bar"><i></i><i></i><i></i><span class="url">veriflow.f4w4z.dev</span></div>
           <div class="body">
             <div class="pipe"><span>Profile</span><span>Validate</span><span>Clean</span><span>Transform</span></div>
@@ -386,7 +414,7 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
           </div>
         </div>
 
-        <div class="scene" data-i="2">
+        <div class="scene" data-i="3">
           <div class="bar"><i></i><i></i><i></i><span class="url">tennis.f4w4z.dev</span></div>
           <div class="body">
             <div class="bignum" data-count="65974">65,974</div>
@@ -403,7 +431,7 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
           </div>
         </div>
 
-        <div class="scene" data-i="3">
+        <div class="scene" data-i="4">
           <div class="bar"><i></i><i></i><i></i><span class="url">IPL Dashboard.pbix</span></div>
           <div class="body">
             <div class="trio">
@@ -423,7 +451,7 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
           </div>
         </div>
 
-        <div class="scene" data-i="4">
+        <div class="scene" data-i="5">
           <div class="bar"><i></i><i></i><i></i><span class="url">drone footage</span></div>
           <div class="body" style="padding:0">
             <div class="frame" id="frame">
@@ -448,7 +476,7 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
           </div>
         </div>
 
-        <div class="scene" data-i="5">
+        <div class="scene" data-i="6">
           <div class="bar"><i></i><i></i><i></i><span class="url">Cloud stability dashboard</span></div>
           <div class="body">
             <canvas class="cv" id="cloudCv" aria-label="Simulated anomaly detection chart"></canvas>
@@ -713,8 +741,8 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
   var scenes = $$('.scene'), runners = [];
   var S = function(i){ return scenes[i]; };
 
-  runners[0] = Loop(function(at){
-    var cl = $('.body', S(0));
+  runners[1] = Loop(function(at){
+    var cl = $('.body', S(1));
     at(0, function(){ cl.classList.remove('st-type','st-dots','st-press','st-toast','st-pop'); cl.classList.add('st-exp'); });
     at(1500, function(){ cl.classList.add('st-type'); });
     at(2600, function(){ cl.classList.add('st-dots'); });
@@ -727,8 +755,8 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
     return 9400;
   });
 
-  runners[1] = Loop(function(at){
-    var s = S(1), pipe = $$('.pipe span', s), bar = $('.prog i', s), rows = $$('.vrow', s), body = $('.body', s);
+  runners[2] = Loop(function(at){
+    var s = S(2), pipe = $$('.pipe span', s), bar = $('.prog i', s), rows = $$('.vrow', s), body = $('.body', s);
     function step(n,w){ pipe.forEach(function(p,k){ p.classList.toggle('act', k===n); }); bar.style.width = w+'%'; }
     at(0, function(){ rows.forEach(function(r){ r.classList.remove('fixed','scan'); }); body.classList.remove('done'); step(0,6); });
     at(800, function(){ step(1,24); });
@@ -749,8 +777,8 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
     [['Hard',64,52],['Clay',38,81],['Grass',70,44],['Carpet',30,35],['Indoor',58,49]],
     [['Round of 16',74,61],['Quarterfinal',66,58],['Semifinal',59,63],['Final',52,70],['Tie-break',48,55]]
   ];
-  runners[2] = Loop(function(at){
-    var s = S(2), tabs = $$('#atpTabs span', s), rows = $$('#atpBars .brow', s);
+  runners[3] = Loop(function(at){
+    var s = S(3), tabs = $$('#atpTabs span', s), rows = $$('#atpBars .brow', s);
     function show(k){
       tabs.forEach(function(t,i){ t.classList.toggle('act', i===k); });
       rows.forEach(function(r,i){
@@ -770,8 +798,8 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
   var seasonH = [38,52,44,60,48,66,56,72,50,64,58,76,62,70,54,80,68];
   var seasonsEl = $('#seasons');
   seasonH.forEach(function(){ seasonsEl.appendChild(document.createElement('i')); });
-  runners[3] = Loop(function(at){
-    var s = S(3), st = $$('#iplSteps div', s), bars = $$('#seasons i', s);
+  runners[4] = Loop(function(at){
+    var s = S(4), st = $$('#iplSteps div', s), bars = $$('#seasons i', s);
     at(0, function(){ $$('[data-count]', s).forEach(countUp); st.forEach(function(x){ x.classList.remove('lit'); }); bars.forEach(function(b){ b.style.height = '4px'; }); });
     st.forEach(function(x,i){ at(900+i*750, function(){ x.classList.add('lit'); }); });
     bars.forEach(function(b,i){ at(4600+i*90, function(){ b.style.height = (seasonH[i]*.9)+'%'; }); });
@@ -779,8 +807,8 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
     return 11200;
   });
 
-  runners[4] = Loop(function(at){
-    var s = S(4), fr = $('#frame', s), boxes = $$('.box', s), found = $('#found', s);
+  runners[5] = Loop(function(at){
+    var s = S(5), fr = $('#frame', s), boxes = $$('.box', s), found = $('#found', s);
     at(0, function(){ boxes.forEach(function(b){ b.classList.remove('show'); }); found.textContent = '0'; fr.classList.remove('sweeping'); });
     at(250, function(){ fr.classList.add('sweeping'); });
     at(1300, function(){ boxes[0].classList.add('show'); found.textContent = '1'; });
@@ -838,7 +866,59 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
       still: function(){ size(); for(var i=0;i<N+30;i++) next(); draw(); }
     };
   })();
-  runners[5] = { start: cloud.start, stop: cloud.stop, still: cloud.still };
+  runners[6] = { start: cloud.start, stop: cloud.stop, still: cloud.still };
+
+
+  /* 0: Chase Tracker (win-probability replay, illustrative path) */
+  var chase = (function(){
+    var cvs = $('#wpCv'), c = cvs.getContext('2d'), nEl = $('#wpn'), oEl = $('#wpo'), bEl = $('#wpb'), tEl = $('#wpt'),
+        path = [], marks = [], running = false, t0 = 0, rafId = 0, TOT = 120, DUR = 9000;
+    (function build(){
+      var p = .5, k;
+      var jumps = {14:.12,31:-.13,47:.15,66:-.14,84:.17,101:.1};
+      for(k=0;k<=TOT;k++){
+        p += Math.sin(k*.3)*.006 + (k>60?.0016:0);
+        if(jumps[k]){ p += jumps[k]; marks.push(k); }
+        p = Math.max(.05,Math.min(.97,p)); path.push(p);
+      }
+      path[TOT] = .94;
+    })();
+    function size(){ var d = Math.min(2,devicePixelRatio||1); cvs.width = cvs.clientWidth*d; cvs.height = cvs.clientHeight*d; c.setTransform(d,0,0,d,0,0); }
+    function draw(n){
+      var W = cvs.clientWidth, H = cvs.clientHeight, i;
+      c.clearRect(0,0,W,H);
+      c.strokeStyle = 'rgba(255,255,255,.07)'; c.lineWidth = 1;
+      [.25,.5,.75].forEach(function(f){ c.beginPath(); c.moveTo(0,H*f); c.lineTo(W,H*f); c.stroke(); });
+      c.strokeStyle = 'rgba(255,255,255,.18)'; c.setLineDash([4,5]); c.beginPath(); c.moveTo(0,H*.5); c.lineTo(W,H*.5); c.stroke(); c.setLineDash([]);
+      var sx = W/TOT, y = function(v){ return H - v*H; };
+      c.beginPath();
+      for(i=0;i<=n;i++){ if(i===0) c.moveTo(0,y(path[0])); else c.lineTo(i*sx,y(path[i])); }
+      c.strokeStyle = '#6B80FF'; c.lineWidth = 2.2; c.lineJoin = 'round'; c.stroke();
+      var pulse = (Date.now()%1200)/1200, shown = 0;
+      marks.forEach(function(m){
+        if(m<=n){ shown++;
+          c.fillStyle = '#FFB547'; c.beginPath(); c.arc(m*sx,y(path[m]),4.5,0,6.2832); c.fill();
+          c.strokeStyle = 'rgba(255,181,71,' + (1-pulse).toFixed(2) + ')'; c.lineWidth = 2;
+          c.beginPath(); c.arc(m*sx,y(path[m]),4.5+pulse*10,0,6.2832); c.stroke(); }
+      });
+      c.fillStyle = '#fff'; c.beginPath(); c.arc(n*sx,y(path[n]),4,0,6.2832); c.fill();
+      nEl.textContent = Math.round(path[n]*100); oEl.textContent = (Math.floor(n/6)+(n%6)/10).toFixed(1);
+      bEl.textContent = n; tEl.textContent = shown;
+    }
+    function loop(t){
+      if(!running) return;
+      var el = (t-t0)%(DUR+1800), n = Math.min(TOT, Math.floor(el/DUR*TOT));
+      draw(n); rafId = requestAnimationFrame(loop);
+    }
+    return {
+      start: function(){ if(running) return; size(); running = true; t0 = performance.now();
+        var bars = $$('.cmp .bt i', S(0)); bars[0].style.width = '70%'; bars[1].style.width = '100%';
+        rafId = requestAnimationFrame(loop); },
+      stop: function(){ running = false; cancelAnimationFrame(rafId); },
+      still: function(){ size(); draw(TOT); }
+    };
+  })();
+  runners[0] = { start: chase.start, stop: chase.stop, still: chase.still };
 
   /* showcase switching */
   var steps = $$('.step'), slots = $$('.slot'), stageEl = $('#stage'),
