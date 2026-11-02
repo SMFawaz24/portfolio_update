@@ -210,6 +210,11 @@ main,.hero,.contact{position:relative;z-index:1}
 .cr{display:grid;grid-template-columns:7.2rem 1fr 3rem;gap:.8rem;align-items:center}
 .cr em{font-style:normal}.cr b{color:var(--tx);font-variant-numeric:tabular-nums;font-weight:600;text-align:right}
 .cr .bt i{width:0}
+.sqlbox{margin:.9rem 0 0;padding:.8rem 1rem;border:1px solid var(--line);border-radius:12px;background:var(--bg);font:500 .8rem/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--mute);min-height:5.2em;white-space:pre-wrap}
+.verdict{margin-top:.8rem;height:2.1rem}
+.verdict span{display:inline-block;font-size:.85rem;font-weight:600;padding:.4rem .8rem;border-radius:10px;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .4s var(--ease)}
+.verdict.ok span{opacity:1;transform:none;background:rgba(70,214,154,.14);color:var(--ok)}
+.verdict.no span{opacity:1;transform:none;background:rgba(255,181,71,.14);color:var(--warn)}
 .more{max-width:1500px;margin:0 auto;padding:clamp(2rem,6vw,5rem) var(--pad)}
 .more h2{font-size:clamp(1.8rem,3.6vw,3rem);margin-bottom:1.6rem}
 .mrow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) auto;gap:1rem 3rem;align-items:center;padding:1.8rem 0;border-top:1px solid var(--line2);transition:padding .25s var(--ease),background .25s}
@@ -306,58 +311,61 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
 <main>
 <section class="work" id="work" aria-label="Projects">
   <div class="work-head">
-    <h2>Seven things I shipped.</h2>
+    <h2>Eight things I shipped.</h2>
     <p>Each one solved a real problem. Watch what they do.</p>
   </div>
 
   <div class="show">
     <div class="steps">
       <article class="step" data-i="0">
-        <h3>Chase Tracker and Cricket Arcade</h3>
+        <h3>Chase Tracker</h3>
         <p>Win probability after every ball of an IPL chase. An XGBoost model trained on 122,857 chase deliveries scores a Brier of 0.174 on 16,166 deliveries from 2025 and 2026 that it never saw, against 0.248 for a constant guess. Replay any match, jump to its turning points, or type in a scenario.</p>
-        <p style="margin-top:.8rem">The same data powers the Cricket Arcade: four trivia games where an LLM writes the questions, SQL checks every fact and validators block anything that doesn't match, so a wrong answer never reaches a player.</p>
-        <p class="stackline"><b>Built with</b> Python, XGBoost, FastAPI, DuckDB, LLM pipeline, JavaScript</p>
-        <div style="display:flex;gap:1.6rem;flex-wrap:wrap">
-          <a class="go" href="https://chase.f4w4z.dev" target="_blank" rel="noopener" data-cursor="Open">Open Chase Tracker</a>
-          <a class="go" href="https://chase.f4w4z.dev/arcade/" target="_blank" rel="noopener" data-cursor="Play">Play the Arcade</a>
-        </div>
+        <p class="stackline"><b>Built with</b> Python, XGBoost, FastAPI, JavaScript</p>
+        <a class="go" href="https://chase.f4w4z.dev" target="_blank" rel="noopener" data-cursor="Open">Open Chase Tracker</a>
         <div class="slot"></div>
       </article>
       <article class="step" data-i="1">
+        <h3>Cricket Arcade</h3>
+        <p>Four trivia games built from the same ball-by-ball data: a quick quiz, higher or lower, guess the player, and a chase predictor where you try to beat the model. An LLM writes the questions, SQL verifies every fact, and validators reject anything that doesn't match, so a wrong answer never reaches a player.</p>
+        <p class="stackline"><b>Built with</b> Python, DuckDB, LLM pipeline, sqlglot, JavaScript</p>
+        <a class="go" href="https://chase.f4w4z.dev/arcade/" target="_blank" rel="noopener" data-cursor="Play">Play the Arcade</a>
+        <div class="slot"></div>
+      </article>
+      <article class="step" data-i="2">
         <h3>SRM Auto Login</h3>
         <p>Campus Wi-Fi logs you out every day. This Chrome extension notices the portal redirect, fills in your login and signs you back in. Credentials stay on your device through the Chrome Storage API. About 2,000 students use it.</p>
         <p class="stackline"><b>Built with</b> JavaScript, Chrome Manifest V3, Webpack</p>
         <a class="go" href="https://chromewebstore.google.com/detail/behkfphgkbobbfocneknileklhkkmfjc" target="_blank" rel="noopener" data-cursor="Open">Open in Chrome Web Store</a>
         <div class="slot"></div>
       </article>
-      <article class="step" data-i="2">
+      <article class="step" data-i="3">
         <h3>Veriflow</h3>
         <p>Upload a messy CSV and get it back validated, cleaned and transformed. It profiles every column on upload, encodes categories, and gives you an expiring download link. It grew out of my Java Data Scaler engine.</p>
         <p class="stackline"><b>Built with</b> Node.js, Express, REST API</p>
         <a class="go" href="https://veriflow.f4w4z.dev" target="_blank" rel="noopener" data-cursor="Open">Try Veriflow</a>
         <div class="slot"></div>
       </article>
-      <article class="step" data-i="3">
+      <article class="step" data-i="4">
         <h3>ATP Analytics</h3>
         <p>Pick any two tennis players and compare them across 65,974 matches from 2000 to 2025: head-to-head, titles by tournament level, results by surface and win rates under pressure. One file, no dependencies.</p>
         <p class="stackline"><b>Built with</b> JavaScript, HTML, CSS</p>
         <a class="go" href="https://tennis.f4w4z.dev" target="_blank" rel="noopener" data-cursor="Open">Compare players</a>
         <div class="slot"></div>
       </article>
-      <article class="step" data-i="4">
+      <article class="step" data-i="5">
         <h3>IPL Dashboard</h3>
         <p>Seventeen seasons of the Indian Premier League, cleaned in a five-notebook Python pipeline and presented in a five-page Power BI dashboard with slicers and cross-page navigation.</p>
         <p class="stackline"><b>Built with</b> Python, Pandas, Seaborn, Power BI</p>
         <a class="go" href="https://github.com/SMFawaz24/IPL-dashboard" target="_blank" rel="noopener" data-cursor="Open">See the code</a>
         <div class="slot"></div>
       </article>
-      <article class="step" data-i="5">
+      <article class="step" data-i="6">
         <h3>Project Eagle-Eye</h3>
         <p>A disaster-rescue vision system. A YOLOv8 model scans drone footage for people trapped in debris, with the inference path tuned for low latency on edge hardware.</p>
         <p class="stackline"><b>Built with</b> Python, TensorFlow, YOLOv8</p>
         <div class="slot"></div>
       </article>
-      <article class="step" data-i="6">
+      <article class="step" data-i="7">
         <h3>Cloud Stability Analysis</h3>
         <p>Finds anomalies in cloud performance metrics using Z-score and Isolation Forest methods. Experiments are tracked in MLflow, and a Flask dashboard on AWS EC2 lets a team explore the results.</p>
         <p class="stackline"><b>Built with</b> Python, scikit-learn, MLflow, Flask, AWS EC2</p>
@@ -383,6 +391,22 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
         </div>
 
         <div class="scene" data-i="1">
+          <div class="bar"><i></i><i></i><i></i><span class="url">chase.f4w4z.dev/arcade</span></div>
+          <div class="body">
+            <div class="tabs" id="arcTabs"><span>Quick quiz</span><span>Higher or lower</span><span>Guess the player</span><span>Chase predictor</span></div>
+            <p class="cap" style="margin-top:.7rem"><b id="arcN" style="color:var(--tx)">62</b> in the question bank</p>
+            <div class="steps5" id="arcSteps">
+              <div>LLM proposes a question</div>
+              <div>SQL checks the answer</div>
+              <div>Validators check numbers and leaks</div>
+            </div>
+            <pre class="sqlbox" id="arcSql" aria-hidden="true"></pre>
+            <div class="verdict" id="arcV"><span id="arcVt"></span></div>
+            <p class="cap" style="margin-top:.6rem">Walkthrough of the pipeline. Queries shown are examples.</p>
+          </div>
+        </div>
+
+        <div class="scene" data-i="2">
           <div class="bar"><i></i><i></i><i></i><span class="url">iach.srmist.edu.in</span></div>
           <div class="body">
             <div class="login">
@@ -401,7 +425,7 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
           </div>
         </div>
 
-        <div class="scene" data-i="2">
+        <div class="scene" data-i="3">
           <div class="bar"><i></i><i></i><i></i><span class="url">veriflow.f4w4z.dev</span></div>
           <div class="body">
             <div class="pipe"><span>Profile</span><span>Validate</span><span>Clean</span><span>Transform</span></div>
@@ -419,7 +443,7 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
           </div>
         </div>
 
-        <div class="scene" data-i="3">
+        <div class="scene" data-i="4">
           <div class="bar"><i></i><i></i><i></i><span class="url">tennis.f4w4z.dev</span></div>
           <div class="body">
             <div class="bignum" data-count="65974">65,974</div>
@@ -436,7 +460,7 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
           </div>
         </div>
 
-        <div class="scene" data-i="4">
+        <div class="scene" data-i="5">
           <div class="bar"><i></i><i></i><i></i><span class="url">IPL Dashboard.pbix</span></div>
           <div class="body">
             <div class="trio">
@@ -456,7 +480,7 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
           </div>
         </div>
 
-        <div class="scene" data-i="5">
+        <div class="scene" data-i="6">
           <div class="bar"><i></i><i></i><i></i><span class="url">drone footage</span></div>
           <div class="body" style="padding:0">
             <div class="frame" id="frame">
@@ -481,7 +505,7 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
           </div>
         </div>
 
-        <div class="scene" data-i="6">
+        <div class="scene" data-i="7">
           <div class="bar"><i></i><i></i><i></i><span class="url">Cloud stability dashboard</span></div>
           <div class="body">
             <canvas class="cv" id="cloudCv" aria-label="Simulated anomaly detection chart"></canvas>
@@ -746,8 +770,8 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
   var scenes = $$('.scene'), runners = [];
   var S = function(i){ return scenes[i]; };
 
-  runners[1] = Loop(function(at){
-    var cl = $('.body', S(1));
+  runners[2] = Loop(function(at){
+    var cl = $('.body', S(2));
     at(0, function(){ cl.classList.remove('st-type','st-dots','st-press','st-toast','st-pop'); cl.classList.add('st-exp'); });
     at(1500, function(){ cl.classList.add('st-type'); });
     at(2600, function(){ cl.classList.add('st-dots'); });
@@ -760,8 +784,8 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
     return 9400;
   });
 
-  runners[2] = Loop(function(at){
-    var s = S(2), pipe = $$('.pipe span', s), bar = $('.prog i', s), rows = $$('.vrow', s), body = $('.body', s);
+  runners[3] = Loop(function(at){
+    var s = S(3), pipe = $$('.pipe span', s), bar = $('.prog i', s), rows = $$('.vrow', s), body = $('.body', s);
     function step(n,w){ pipe.forEach(function(p,k){ p.classList.toggle('act', k===n); }); bar.style.width = w+'%'; }
     at(0, function(){ rows.forEach(function(r){ r.classList.remove('fixed','scan'); }); body.classList.remove('done'); step(0,6); });
     at(800, function(){ step(1,24); });
@@ -782,8 +806,8 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
     [['Hard',64,52],['Clay',38,81],['Grass',70,44],['Carpet',30,35],['Indoor',58,49]],
     [['Round of 16',74,61],['Quarterfinal',66,58],['Semifinal',59,63],['Final',52,70],['Tie-break',48,55]]
   ];
-  runners[3] = Loop(function(at){
-    var s = S(3), tabs = $$('#atpTabs span', s), rows = $$('#atpBars .brow', s);
+  runners[4] = Loop(function(at){
+    var s = S(4), tabs = $$('#atpTabs span', s), rows = $$('#atpBars .brow', s);
     function show(k){
       tabs.forEach(function(t,i){ t.classList.toggle('act', i===k); });
       rows.forEach(function(r,i){
@@ -803,8 +827,8 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
   var seasonH = [38,52,44,60,48,66,56,72,50,64,58,76,62,70,54,80,68];
   var seasonsEl = $('#seasons');
   seasonH.forEach(function(){ seasonsEl.appendChild(document.createElement('i')); });
-  runners[4] = Loop(function(at){
-    var s = S(4), st = $$('#iplSteps div', s), bars = $$('#seasons i', s);
+  runners[5] = Loop(function(at){
+    var s = S(5), st = $$('#iplSteps div', s), bars = $$('#seasons i', s);
     at(0, function(){ $$('[data-count]', s).forEach(countUp); st.forEach(function(x){ x.classList.remove('lit'); }); bars.forEach(function(b){ b.style.height = '4px'; }); });
     st.forEach(function(x,i){ at(900+i*750, function(){ x.classList.add('lit'); }); });
     bars.forEach(function(b,i){ at(4600+i*90, function(){ b.style.height = (seasonH[i]*.9)+'%'; }); });
@@ -812,8 +836,8 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
     return 11200;
   });
 
-  runners[5] = Loop(function(at){
-    var s = S(5), fr = $('#frame', s), boxes = $$('.box', s), found = $('#found', s);
+  runners[6] = Loop(function(at){
+    var s = S(6), fr = $('#frame', s), boxes = $$('.box', s), found = $('#found', s);
     at(0, function(){ boxes.forEach(function(b){ b.classList.remove('show'); }); found.textContent = '0'; fr.classList.remove('sweeping'); });
     at(250, function(){ fr.classList.add('sweeping'); });
     at(1300, function(){ boxes[0].classList.add('show'); found.textContent = '1'; });
@@ -871,7 +895,7 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
       still: function(){ size(); for(var i=0;i<N+30;i++) next(); draw(); }
     };
   })();
-  runners[6] = { start: cloud.start, stop: cloud.stop, still: cloud.still };
+  runners[7] = { start: cloud.start, stop: cloud.stop, still: cloud.still };
 
 
   /* 0: Chase Tracker (win-probability replay, illustrative path) */
@@ -924,6 +948,30 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
     };
   })();
   runners[0] = { start: chase.start, stop: chase.stop, still: chase.still };
+
+
+  /* 1: Cricket Arcade pipeline */
+  var arcCounts = [62,102,120,240];
+  var arcSql = [
+    'SELECT batter, SUM(runs) AS runs\nFROM deliveries GROUP BY batter\nORDER BY runs DESC LIMIT 4;',
+    'SELECT venue, COUNT(*) AS matches\nFROM matches GROUP BY venue\nORDER BY matches DESC LIMIT 2;',
+    'SELECT season, runs, wickets, strike_rate\nFROM player_facts WHERE player = ?;',
+    'SELECT * FROM chase_state\nWHERE over BETWEEN 8 AND 14 LIMIT 1;'
+  ];
+  runners[1] = Loop(function(at){
+    var s = S(1), tabs = $$('#arcTabs span', s), st = $$('#arcSteps div', s), sql = $('#arcSql', s), v = $('#arcV', s), vt = $('#arcV span', s), n = $('#arcN', s);
+    var k = (runners[1].__k = ((runners[1].__k||0)+1)) % 4;
+    k = (k+3)%4;
+    function typeSql(txt){ sql.textContent=''; sql.__go = txt; var i=0; (function t(){ if(i<=txt.length && sql.__go===txt){ sql.textContent = txt.slice(0,i++); setTimeout(t,22); } })(); }
+    at(0, function(){ tabs.forEach(function(t,i){ t.classList.toggle('act', i===k); }); n.textContent = arcCounts[k]; st.forEach(function(x){ x.classList.remove('lit'); }); sql.textContent=''; sql.__go=''; v.className='verdict'; });
+    at(700, function(){ st[0].classList.add('lit'); });
+    at(1700, function(){ st[1].classList.add('lit'); if(!reduce) typeSql(arcSql[k]); else sql.textContent = arcSql[k]; });
+    at(4200, function(){ st[2].classList.add('lit'); });
+    var pass = (k % 2 === 0);
+    at(5200, function(){ v.className = 'verdict ' + (pass?'ok':'no'); vt.textContent = pass ? 'Accepted: added to the bank' : 'Rejected: the template question stays'; });
+    at(8400, function(){ v.className='verdict'; }, {loopOnly:true});
+    return 9000;
+  });
 
   /* showcase switching */
   var steps = $$('.step'), slots = $$('.slot'), stageEl = $('#stage'),
