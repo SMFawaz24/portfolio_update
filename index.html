@@ -313,10 +313,14 @@ a.mrow:hover{padding-left:1.2rem;padding-right:1.2rem;background:rgba(18,20,26,.
   <div class="show">
     <div class="steps">
       <article class="step" data-i="0">
-        <h3>Chase Tracker</h3>
-        <p>Win probability after every ball of an IPL chase. An XGBoost model trained on 122,857 chase deliveries across all IPL seasons scores a Brier of 0.174 on 16,166 deliveries from 2025 and 2026 that it never saw, against 0.248 for a constant guess. Replay any match, jump to its turning points, or type in a scenario.</p>
-        <p class="stackline"><b>Built with</b> Python, XGBoost, FastAPI, JavaScript</p>
-        <a class="go" href="https://chase.f4w4z.dev" target="_blank" rel="noopener" data-cursor="Open">Open Chase Tracker</a>
+        <h3>Chase Tracker and Cricket Arcade</h3>
+        <p>Win probability after every ball of an IPL chase. An XGBoost model trained on 122,857 chase deliveries scores a Brier of 0.174 on 16,166 deliveries from 2025 and 2026 that it never saw, against 0.248 for a constant guess. Replay any match, jump to its turning points, or type in a scenario.</p>
+        <p style="margin-top:.8rem">The same data powers the Cricket Arcade: four trivia games where an LLM writes the questions, SQL checks every fact and validators block anything that doesn't match, so a wrong answer never reaches a player.</p>
+        <p class="stackline"><b>Built with</b> Python, XGBoost, FastAPI, DuckDB, LLM pipeline, JavaScript</p>
+        <div style="display:flex;gap:1.6rem;flex-wrap:wrap">
+          <a class="go" href="https://chase.f4w4z.dev" target="_blank" rel="noopener" data-cursor="Open">Open Chase Tracker</a>
+          <a class="go" href="https://chase.f4w4z.dev/arcade/" target="_blank" rel="noopener" data-cursor="Play">Play the Arcade</a>
+        </div>
         <div class="slot"></div>
       </article>
       <article class="step" data-i="1">
